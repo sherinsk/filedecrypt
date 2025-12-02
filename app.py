@@ -201,7 +201,7 @@ class FileEncryptorApp:
     def decrypt_action(self):
         if not self.dec_file_path or not self.dec_key:
             return
-        out = self.dec_file_path.replace(".enc", ".dec")
+        out = os.path.splitext(self.dec_file_path)[0]
         decrypt_file(self.dec_file_path, out, self.dec_key)
         messagebox.showinfo("Done", "Decrypted successfully.")
 
